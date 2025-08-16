@@ -197,13 +197,13 @@ header p {
 }
 
 .breakdown-item.negative {
-    background: #d4edda;
-    border-left: 4px solid #28a745;
+    background: #f8d7da;
+    border-left: 4px solid #721c24;
 }
 
 .breakdown-item.positive {
-    background: #fff3cd;
-    border-left: 4px solid #ffc107;
+    background: #c7f1d4;
+    border-left: 4px solid #28a745;
 }
 
 .breakdown-label {

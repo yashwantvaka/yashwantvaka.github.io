@@ -166,7 +166,7 @@ function displayResults(result) {
     document.getElementById('totalCost').textContent = formatCurrency(result.totalNetCost);
     document.getElementById('monthlyPayment').textContent = formatCurrency(result.monthlyPayment);
     document.getElementById('frontEndRatio').textContent = formatPercentage(result.frontEndRatio);
-    document.getElementById('taxRate').textContent = formatPercentage(result.totalTaxRate);
+    document.getElementById('downPaymentResult').textContent = formatCurrency(result.breakdown.downPayment);
 
     // Affordability status
     const statusElement = document.getElementById('affordabilityStatus');
@@ -183,15 +183,15 @@ function displayResults(result) {
     breakdownContainer.innerHTML = '';
 
     const breakdownItems = [
-        { label: 'Annual Mortgage Payment', value: result.breakdown.annualMortgagePayment, type: 'positive' },
-        { label: 'Property Tax', value: result.breakdown.propertyTax, type: 'positive' },
-        { label: 'Insurance', value: result.breakdown.insurance, type: 'positive' },
-        { label: 'Maintenance', value: result.breakdown.maintenance, type: 'positive' },
-        { label: 'Opportunity Cost (Upfront)', value: result.breakdown.opportunityCostUpfront, type: 'positive' },
-        { label: 'Opportunity Cost (Mortgage)', value: result.breakdown.opportunityCostMortgagePayments, type: 'positive' },
-        { label: 'Home Appreciation', value: -result.breakdown.homeAppreciationValue, type: 'negative' },
-        { label: 'Mortgage Interest Tax Savings', value: -result.breakdown.mortgageInterestTaxSavings, type: 'negative' },
-        { label: 'Property Tax Tax Savings', value: -result.breakdown.propertyTaxTaxSavings, type: 'negative' }
+        { label: 'Annual Mortgage Payment', value: result.breakdown.annualMortgagePayment, type: 'negative' },
+        { label: 'Property Tax', value: result.breakdown.propertyTax, type: 'negative' },
+        { label: 'Insurance', value: result.breakdown.insurance, type: 'negative' },
+        { label: 'Maintenance', value: result.breakdown.maintenance, type: 'negative' },
+        { label: 'Stock gains lost from down payment', value: result.breakdown.opportunityCostUpfront, type: 'negative' },
+        { label: 'Stock gains lost from mortage payment', value: result.breakdown.opportunityCostMortgagePayments, type: 'negative' },
+        { label: 'Home Appreciation', value: -result.breakdown.homeAppreciationValue, type: 'positive' },
+        { label: 'Mortgage Interest Tax Savings', value: -result.breakdown.mortgageInterestTaxSavings, type: 'positive' },
+        { label: 'Property Tax Tax Savings', value: -result.breakdown.propertyTaxTaxSavings, type: 'positive' }
     ];
 
     breakdownItems.forEach(item => {
